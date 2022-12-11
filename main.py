@@ -384,35 +384,8 @@ def console():
                 console()
             URC = input("Do you really want to factory reset? [Y/n]: ")
             if URC in("yes","YES","Yes","y","Y"):
-                print("Beginning Factory reset!")
-                if os.path.isfile("ipchecker"):
-                    print(Fore.BLUE+"[FR]: Uninstalling IpChecker on "+os.getcwd()+"!")
-                    os.remove("ipchecker")
-                else:
-                    print(Fore.BLUE+"[FR]: Does't not finding IpChecker on "+os.getcwd()+"!")
-                    if os.path.isfile("toolmanager"):
-                        print(Fore.BLUE+"[FR]: Uninstalling toolamager on "+os.getcwd()+"!")
-                        os.remove("toolmanager")
-                    else:
-                        print("Failed to removing plugins!")
-                os.chdir("usersDirectory")
-                print("Deleting usersDirectory")
-                if os.path.isfile("password.txt"):
-                    os.remove("password.txt")
-                if os.path.isfile("username.txt"):
-                    os.remove("username.txt")
-                if os.path.isfile("appuninstaller.py"):
-                    os.remove("appuninstaller.py")
-                if os.path.isfile("pcbrokener.py"):
-                    os.remove("pcbrokener.py")
-                print("Sucsessfully factory reset on "+os.getcwd())
-                print("Rebooting...")
-                time.sleep(5)
-                os.system("cls")
-                os.chdir("..")
-                os.system("main.py")
-            if URC in("n","N","NO","no","No"):
-                print("Cancelling...")
+                os.system("factory-reset.py")
+            else:
                 console()
 
     if consoleInput in("ipconfig","IPCONFIG","Ipconfig"):
